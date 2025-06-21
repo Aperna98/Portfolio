@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dhakshin Muthukumar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    :root {
+      --bg-color: #0f0f0f;
+      --primary: #00ffff;
+      --text: #fff;
+      --accent: #00ffee;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: slideDown 1s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      transform: scale(1.1);
+    }
+
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(to bottom, #0f0f0f, #1f1f1f);
+      animation: fadeIn 2s ease-in;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #00ffff, #00ffee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s infinite alternate;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    .btns {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      border: 2px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: -100%;
+      background: var(--accent);
+      z-index: -1;
+      transition: left 0.3s ease;
+    }
+
+    .btn:hover::before {
+      left: 0;
+    }
+
+    .btn:hover {
+      color: var(--bg-color);
+    }
+
+    section {
+      padding: 4rem 2rem;
+    }
+
+    .skills, .projects, .timeline, .contact {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skills h3, .projects h3, .timeline h3, .contact h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .skill {
+      background: #1a1a1a;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0,255,255,0.2);
+    }
+
+    .skill:hover {
+      transform: scale(1.1);
+    }
+
+    .projects .card {
+      background: #1a1a1a;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 10px rgba(0,255,255,0.3);
+    }
+
+    .projects .card:hover {
+      transform: scale(1.02);
+    }
+
+    .timeline .entry {
+      margin-bottom: 2rem;
+      background: #1f1f1f;
+      padding: 1rem;
+      border-left: 3px solid var(--accent);
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .contact input, .contact textarea {
+      padding: 1rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .contact button {
+      padding: 1rem;
+      background: var(--primary);
+      border: none;
+      color: var(--bg-color);
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact button:hover {
+      background: #00dddd;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #777;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px var(--accent); }
+      100% { text-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dhakshin Muthukumar</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+<div class="background-animation"></div>
+
+<section class="hero">
+  <h2>Hi, I am Muthukumar</h2>
+  <p>Looking for a launchpad to learn, grow, and contribute.</p>
+  <p>Craving challenges, opportunities, learning, growth, and team contribution.</p>
+  <br>
+  <div class="typing-role">
+    <span id="typed-text" style="font-weight: bold; background: linear-gradient(to right, #00ffff, #00ffee); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></span>
+    <span class="cursor" style="color: #00ffee;">|</span>
+  </div>
+</section>
+
+<style>
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.15) 0%, transparent 25%);
+    animation: floatBackground 20s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  @keyframes floatBackground {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-10%, -10%); }
+  }
+
+  .typing-role {
+    text-align: center;
+    font-size: 1.3rem;
+    height: 2rem;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+
+  .cursor {
+    animation: blink 0.7s infinite;
+  }
+
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .btns {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0 0;
+  }
+
+  .btn {
+    padding: 0.7rem 1.8rem;
+    border: 2px solid #00ffee;
+    background: transparent;
+    color: #00ffee;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn:hover {
+    background: #00ffee;
+    color: #000;
+  }
+
+  .rounded-gradient-box {
+    padding: 8px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #00ffee, #0ff);
+    display: inline-block;
+    margin-right: 3cm;
+  }
+
+  .rounded-gradient-box img {
+    border-radius: 16px;
+    display: block;
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0,255,255,0.6);
+  }
+</style>
+
+<script>
+  const roles = [
+    "Mobile Application Developer",
+    "Machine Learning Engineer",
+    "Java OOP Developer",
+    "Problem Solver"
+  ];
+  let currentIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typedText = document.getElementById("typed-text");
+
+  function typeEffect() {
+    const currentRole = roles[currentIndex];
+
+    if (!isDeleting) {
+      typedText.textContent = currentRole.substring(0, charIndex++);
+      if (charIndex > currentRole.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 500);
+        return;
+      }
+    } else {
+      typedText.textContent = currentRole.substring(0, charIndex--);
+      if (charIndex < 0) {
+        isDeleting = false;
+        currentIndex = (currentIndex + 1) % roles.length;
+      }
+    }
+    setTimeout(typeEffect, isDeleting ? 25 : 40);
+  }
+  document.addEventListener("DOMContentLoaded", typeEffect);
+</script>
+
+<section id="about" class="about" data-aos="fade-up">
+  <h3 id="about" style="text-align: center; font-size: 2rem; margin-bottom: 2rem; background: linear-gradient(to right, #00ffff, #00ffee); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">About Me</h3>
+  <div class="about-me" style="display: flex; flex-direction: row; align-items: center; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+    <div class="about-img rounded-gradient-box">
+      <img src="/muthu.jpg" alt="Profile Picture" style="height: 260px; width: 220px; border-radius: 20px; object-fit: cover; box-shadow: 0 0 20px rgba(0,255,255, 0.6); background: linear-gradient(135deg, #00ffff 0%, #00ffee 100%); padding: 4px;">
+    </div>
+    <div class="about-desc" style="max-width: 700px;">
+      <p>
+        I am a passionate and self-driven AI & Machine Learning Engineer with a strong foundation in 
+        deep learning, app development, and object-oriented programming. Currently pursuing my degree 
+        in Computer Science and Engineering at Thiagarajar College of Engineering (TCE), I actively seek 
+        opportunities to solve real-world problems through intelligent systems.
+      </p><br>
+      <p>
+        My enthusiasm extends beyond academics — I proudly serve as the <strong>General Secretary of IEEE-TCE</strong>, 
+        <strong>Project Manager (Software) of IETSC</strong>, <strong>Placement Representative</strong> for the CSE department, and 
+        <strong>Vice-Captain</strong> of our Inter-College Cricket Team. I'm also an <strong>active NSS Volunteer</strong>, 
+        contributing to community engagement and leadership initiatives.
+      </p><br>
+      <p>
+        With a keen interest in <strong>Deep Learning</strong>, <strong>Flutter-based App Development</strong>, and 
+        <strong>Logical Problem Solving</strong>, I constantly aim to elevate my technical capabilities while making a meaningful 
+        contribution to every team and project I engage with.
+      </p>
+    </div>
+  </div>
+  <div class="btns">
+    <button class="btn" onclick="location.href='#projects'">View My Work</button>
+    <button class="btn" onclick="window.open('resume.pdf', '_blank')">View Resume</button>
+  </div>
+  <br>
+  <div class="social-links" style="display: flex; justify-content: center; gap: 2rem; font-size: 2rem;">
+    <a href="https://github.com/MUTHUKUMARMD" target="_blank" style="color: #00ffee;"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/m-d-muthu-kumar-063189254" target="_blank" style="color: #00ffee;"><i class="fab fa-linkedin"></i></a>
+    <a href="mailto:dhakshinmuthukumar@gmail.com" style="color: #00ffee;"><i class="fas fa-envelope"></i></a>
+  </div>
+</section>
+
+
+
+
+<!-- Education Section -->
+<section id="education" class="education" data-aos="fade-up" style="padding: 4rem 0;">
+  <h3 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; background: linear-gradient(to right, #00ffff, #00ffee); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Education</h3>
+  <div style="background-color: #111827; color: #fff; padding: 2rem; border-radius: 12px; max-width: 800px; margin: 0 auto; box-shadow: 0 0 20px rgba(0,255,255, 0.3);">
+    <h2 style="text-align: center ; font-weight: bold; color: #fff;">Bachelor of Engineering in Computer Science</h2><br>
+<p>Thiagarajar College of Engineering</p>
+<p>Batch: 2022 - 2026</p>
+    <br>
+    <p><strong style="color: #00ffee;">Areas of Interest:</strong></p>
+    <ul style="padding-left: 1.5rem;">
+      <li>Mobile Application Development (Flutter)</li>
+      <li>Deep Learning</li>
+      <li>Object Oriented Programming (Java)</li>
+     <li>Logical Thinking and Problem Solving</li>
+    </ul>
+  </div>
+</section>
+
+<section id="skills" class="skills" data-aos="fade-up">
+  <h3 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; color: #00ffff;">Skills</h3>
+  <div class="skills-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; max-width: 800px; margin: 0 auto;">
+    <div class="skill">Java</div>
+    <div class="skill">Flutter</div>
+    <div class="skill">SQL</div>
+    <div class="skill">Tensorflow</div>
+    <div class="skill">Python</div>
+    <div class="skill">HTML</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">Firebase</div>
+    <div class="skill">Flask</div>
+    <div class="skill">Node.js</div>
+  </div>
+</section>
+
+<style>
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+  }
+
+  .skill {
+    background: #1a1a1a;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0,255,255,0.2);
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .skill:hover {
+    transform: scale(1.1);
+  }
+</style>
+
+
+  <section id="projects" class="projects" data-aos="fade-up">
+    <h3>Projects</h3>
+    <div class="card">
+      <h4>DEEPFAKE DETECTION – Unmasking the Unreal</h4><br>
+      <p>Developed a website for 
+CNN-based deepfake detection using TensorFlow and OpenCV with an integrated module 
+offering educational resources and daily news to raise user awareness.</p><br>
+<p>Tech Stack: HTML, CSS, JavaScript, Python, Flask, Tensorflow, OpenCV
+</p>    
+</div>
+    <div class="card">
+      <h4>RE-DACT - Privacy with Precision</h4><br>
+      <p>Developed a web-based application 
+detects and redacts sensitive information from images and PDF documents. The system 
+ensures data privacy by masking confidential details.</p><br>
+<p>Tech Stack: HTML, CSS, JavaScript, PHP, Python, Flask, Spacy</p>
+    </div>
+
+    <div class="card">
+      <h4>VR LABORATORY – Learning using VR</h4><br>
+      <p>Developed a Virtual Reality (VR) 
+platform that not only revolutionizes the traditional machines lab challenges but also offers an 
+immersive , interactive VR experience for engineering students.</p><br>
+<p>Tech Stack: Unity, Blender ,C#</p>
+    </div>
+  </section>
+
+
+  <section id="certifications" class="timeline" data-aos="fade-up">
+    <h3>Certifications</h3>
+    <div class="entry">
+      <h4>Cyber Security</h4>
+      <p>Completed ‘Practical Cyber-Security ’ Certification in NPTEL with 100%.</p>
+    </div>
+    <div class="entry">
+      <h4>Java</h4>
+      <p>Completed ‘Java Advanced ’ Certification in Programming Hub.</p>
+    </div>
+    <div class="entry">
+      <h4>Artificial Intelligence</h4>
+      <p>Completed ‘Artificial Intelligence Primer ’ Certification in Infosys Springboard.</p>
+    </div>   
+   
+    <div class="entry">
+      <h4>Prompt Design</h4>
+      <p>Completed ‘Prompted Designed in Verted AI Skill Badge ’ in Google Cloud Skills Boost.</p>
+    </div>
+
+  </section>
+
+<section id="contact" class="contact">
+  <h3>Contact Me</h3>
+<form action="https://formspree.io/f/xjkrezlb" method="POST">
+  <input type="hidden" name="_subject" value="New message from Portfolio Contact Form">
+  <input type="hidden" name="_next" value="thank.html">
+  
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+  
+  <button type="submit">Send Message</button>
+</form>
+
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 DhakshinMuthukumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+</html>
