@@ -71,7 +71,7 @@
       font-size: 3rem;
       margin-bottom: 1rem;
       background: linear-gradient(90deg, #00ffff, #00ffee);
-      -webkit-background-clip: text;
+      -webkit-background-clip: text; background-clip: text; 
       -webkit-text-fill-color: transparent;
       animation: glow 2s infinite alternate;
     }
@@ -246,7 +246,7 @@
   <p>Craving challenges, opportunities, learning, growth, and team contribution.</p>
   <br>
   <div class="typing-role">
-    <span id="typed-text" style="font-weight: bold; background: linear-gradient(to right, #00ffff, #00ffee); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></span>
+    <span id="typed-text" style="font-weight: bold; background: linear-gradient(to right, #00ffff, #00ffee); -webkit-background-clip: text; background-clip: text;  -webkit-text-fill-color: transparent;"></span>
     <span class="cursor" style="color: #00ffee;">|</span>
   </div>
 </section>
@@ -256,6 +256,7 @@
     margin: 0;
     overflow-x: hidden;
     position: relative;
+    text-align: justify;
   }
 
   .background-animation {
@@ -265,7 +266,7 @@
     width: 100%;
     height: 100%;
     background: radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.15) 0%, transparent 25%);
+                radial-gradient(circle at 80% 60%, rgba(0, 255, 255, 0.15) 0%, transparent 25%);
     animation: floatBackground 20s ease-in-out infinite;
     z-index: -1;
   }
@@ -371,7 +372,7 @@
 </script>
 
 <section id="about" class="about" data-aos="fade-up">
-  <h3 id="about" style="text-align: center; font-size: 2rem; margin-bottom: 2rem; background: linear-gradient(to right, #00ffff, #00ffee); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">About Me</h3>
+  <h3 id="about" style="text-align: center; font-size: 2rem; margin-bottom: 2rem; background: linear-gradient(to right, #00ffff, #00ffee); -webkit-background-clip: text; background-clip: text;  background-clip: text; -webkit-text-fill-color: transparent;">About Me</h3>
   <div class="about-me" style="display: flex; flex-direction: row; align-items: center; gap: 2rem; justify-content: center; flex-wrap: wrap;">
     <div class="about-img rounded-gradient-box">
       <img src="/muthu.jpg" alt="Profile Picture" style="height: 260px; width: 220px; border-radius: 20px; object-fit: cover; box-shadow: 0 0 20px rgba(0,255,255, 0.6); background: linear-gradient(135deg, #00ffff 0%, #00ffee 100%); padding: 4px;">
@@ -413,7 +414,7 @@
 
 <!-- Education Section -->
 <section id="education" class="education" data-aos="fade-up" style="padding: 4rem 0;">
-  <h3 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; background: linear-gradient(to right, #00ffff, #00ffee); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Education</h3>
+  <h3 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; background: linear-gradient(to right, #00ffff, #00ffee); -webkit-background-clip: text; background-clip: text;  -webkit-text-fill-color: transparent;">Education</h3>
   <div style="background-color: #111827; color: #fff; padding: 2rem; border-radius: 12px; max-width: 800px; margin: 0 auto; box-shadow: 0 0 20px rgba(0,255,255, 0.3);">
     <h2 style="text-align: center ; font-weight: bold; color: #fff;">Bachelor of Engineering in Computer Science</h2><br>
 <p>Thiagarajar College of Engineering</p>
